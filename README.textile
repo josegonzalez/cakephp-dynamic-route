@@ -1,0 +1,99 @@
+h1. DynamicRoute Plugin (For CakePHP 1.3)
+
+Read routes from a database into @routes.php@ quickly and easily
+
+h2. Background
+
+As with the other route class I built, someone asked in IRC if it would be possible to read the routes from the database and load them into the @app/config/routes.php@ file on the fly. I decided this was true, and this is the result.
+
+h2. Requirements
+
+* PHP 5.2+
+* CakePHP 1.3
+
+h2. Installation
+
+_[Manual]_
+
+# Download this: http://github.com/josegonzalez/dynamic_route/zipball/master
+# Unzip that download.
+# Copy the resulting folder to app/plugins
+# Rename the folder you just copied to @dynamic_route@
+
+_[GIT Submodule]_
+
+In your app directory type:
+<pre><code>git submodule add git://github.com/josegonzalez/dynamic_route.git plugins/dynamic_route
+git submodule init
+git submodule update
+</code></pre>
+
+_[GIT Clone]_
+
+In your plugin directory type
+<pre><code>git clone git://github.com/josegonzalez/dynamic_route.git dynamic_route</code></pre>
+
+h2. Usage
+
+Way near the bottom of your @app/config/routes.php@ file, add the following:
+
+<pre><code>App::import('Lib', 'DynamicRoute.FancyRoute');
+FancyRoute::connectFancyRoutes();
+</code></pre>
+
+You can now remove all other **hacks** from your @app/config/routes.php@ file.
+
+What we've enabled is creating @spec|slug@ routes in the database. A @spec@ would be the internal CakePHP mapping, like @posts/view?id=45@ or @events/calendar?date=2011-11-01&category=lol@, while the corresponding @slug@s might be something like @/why-isnt-this-pup-asleep@ or @/manchester/cakephp-developers-dance-to-beyonce@.
+
+This @spec|slug@ system allows one to have a specialized table for routing - by default the @dynamic_routes@ table - which can be used across multiple models and controllers if necessary. It allows a developer to create a simple interface for building internal application routes that a non-developer can use at a later date. This is extremely useful when building content management systems that need a Joomla or Wordpress-like routing system.
+
+h2. Options
+
+@FancyRoute::connectFancyRoutes()@ takes an optional array for configuration the route loading:
+
+* @model@: String or Object referencing a CakePHP Model to use for loading records.
+** Default: (string) @DynamicRoute.DynamicRoute@
+** Note: Model being loaded must have a @load@ custom find method that returns specs mapping to slugs
+* @cacheKey@: Key used for caching the dynamic routes to disk
+** Default: (string) @dynamic_routes@
+* @cache@: Whether to cache the db queries
+** Default: (boolean) true
+
+h2. Notes
+
+Because of the way in which this class works, it is not necessary to call @Router::connect()@ on any of the dynamic routes, as this is called internally by the @FancyRoute@ class.
+
+The @DynamicRoute@ model contains methods for turning a given specification into an internal cakephp request, whether that be a string or array.
+
+You will currently have to create valid @spec|slug@ records yourself. Slugs should be prepended with a @/@ character, but should not be followed by one. Specs are regular web requests, @$_GET@ style.
+
+There is a helper method on the @DynamicRoute@ model called @saveNew()@; This method takes a @spec@ and @slug@, or an array of data, and returns whether or not the save is successful. It will also do it's best to ensure that the data is properly setup by normalizing specifications and ensuring there slug is in the correct format.
+
+h2. Todo
+
+* Unit Tests
+* Backend UI for creating new dynamic routes
+* -Helper Model method for creating new dynamic routes-
+* Port to 2.0
+
+h2. License
+
+Copyright (c) 2011 Jose Diaz-Gonzalez
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
