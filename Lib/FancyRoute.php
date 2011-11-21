@@ -20,6 +20,9 @@
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  * @see CakeRoute
  */
+
+App::uses('CakeLog', 'Log');
+App::uses('ClassRegistry', 'Utility');
 class FancyRoute {
 
 /**
@@ -74,9 +77,6 @@ class FancyRoute {
 		}
 
 		if (!is_object(static::$model)) {
-			if (!class_exists('CakeLog')) {
-				App::import('Core', 'CakeLog');
-			}
 			CakeLog::write('dynamic_route', 'Unable to load dynamic_route model');
 			return false;
 		}
@@ -89,9 +89,6 @@ class FancyRoute {
 			return self::_loadRoutes();
 		}
 
-		if (!class_exists('CakeLog')) {
-			App::import('Core', 'CakeLog');
-		}
 		CakeLog::write('dynamic_route', 'No routes available');
 		return false;
 	}

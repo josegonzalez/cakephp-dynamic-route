@@ -44,8 +44,8 @@ class DynamicRoute extends DynamicRouteAppModel {
 
 	public function __construct($id = false, $table = null, $ds = null) {
 		parent::__construct();
-		$this->_findMethods['load'] = true;
-		$this->_findMethods['spec'] = true;
+		$this->findMethods['load'] = true;
+		$this->findMethods['spec'] = true;
 	}
 
 	public function _findLoad($state, $query, $results = array()) {
