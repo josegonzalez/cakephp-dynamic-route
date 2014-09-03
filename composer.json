@@ -1,0 +1,32 @@
+
+{
+	"name": "josegonzalez/cakephp-dynamic-route",
+	"description": "Automagicallydatabase-backed dynamic routes for cakephp",
+	"type": "cakephp-plugin",
+	"keywords": [
+		"cakephp",
+		"routes",
+		"database"
+	],
+	"homepage": "http://github.com/josegonzalez/cakephp-dynamic-route",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Jose Diaz-Gonzalez",
+			"email": "email@josediazgonzalez.com",
+			"homepage": "http://josediazgonzalez.com",
+			"role": "Maintainer"
+		}
+	],
+	"require": {
+		"composer/installers": "*"
+	},
+	"support": {
+		"email": "cakephp+dynamic-route@josediazgonzalez.com",
+		"issues": "https://github.com/josegonzalez/cakephp-dynamic-route/issues",
+		"source": "https://github.com/josegonzalez/cakephp-dynamic-route"
+	},
+	"extra": {
+		"installer-name": "DynamicRoute"
+	}
+}
