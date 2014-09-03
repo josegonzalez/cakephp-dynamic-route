@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/josegonzalez/cakephp-dynamic-route.png?branch=master)](https://travis-ci.org/josegonzalez/cakephp-dynamic-route) [![Coverage Status](https://coveralls.io/repos/josegonzalez/cakephp-dynamic-route/badge.png?branch=master)](https://coveralls.io/r/josegonzalez/cakephp-dynamic-route?branch=master) [![Total Downloads](https://poser.pugx.org/josegonzalez/cakephp-dynamic-route/d/total.png)](https://packagist.org/packages/josegonzalez/cakephp-dynamic-route) [![Latest Stable Version](https://poser.pugx.org/josegonzalez/cakephp-dynamic-route/v/stable.png)](https://packagist.org/packages/josegonzalez/cakephp-dynamic-route)
+
 # DynamicRoute Plugin (For CakePHP 2.0)
 
 Read routes from a database into `routes.php` quickly and easily
