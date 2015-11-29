@@ -68,7 +68,7 @@ class FancyRoute {
  *
  * @return bool
  */
-	public static function _loadDynamicRoutes() {
+	protected static function _loadDynamicRoutes() {
 		if (static::$options['cache']) {
 			static::$_routes = Cache::read(static::$options['cacheKey']);
 			if (static::$_routes) {
