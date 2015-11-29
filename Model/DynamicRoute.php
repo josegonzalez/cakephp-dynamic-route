@@ -102,7 +102,7 @@ class DynamicRoute extends DynamicRouteAppModel {
  * Does a bit of extra handling to ensure proper insertion of route slugs
  *
  * @param array $options array of options from Model::save() call
- * @return boolean
+ * @return bool
  */
 	public function beforeValidate($options = array()) {
 		if (!empty($this->data[$this->alias]['slug'])) {
@@ -114,8 +114,8 @@ class DynamicRoute extends DynamicRouteAppModel {
 /**
  * Clears all dynamic routes from the cache
  *
- * @param boolean $created
- * @return boolean
+ * @param bool $created whether the route was created or not
+ * @return bool
  */
 	public function afterSave($created) {
 		if (Configure::read('DynamicRoute.cacheKey')) {
@@ -127,9 +127,9 @@ class DynamicRoute extends DynamicRouteAppModel {
 /**
  * Helper method for creating new dynamic_route records
  *
- * @param mixed $spec
- * @param string $slug
- * @return boolean
+ * @param mixed $spec a route spec
+ * @param string $slug an associated route slug
+ * @return bool
  */
 	public function saveNew($spec, $slug) {
 		$data = $spec;
@@ -157,7 +157,6 @@ class DynamicRoute extends DynamicRouteAppModel {
  *
  * @param mixed $params string|array referencing a specification
  * @return string specification as internal CakePHP "url"
- * @todo handle multiple embedded arrays
  */
 	public function normalize($params) {
 		if (is_string($params)) {
@@ -193,7 +192,7 @@ class DynamicRoute extends DynamicRouteAppModel {
 /**
  * Turns a specification string into an array
  *
- * @param string $spec
+ * @param string $spec a route spec to be parsed
  * @return array
  */
 	public function parse($spec) {
@@ -228,8 +227,10 @@ class DynamicRoute extends DynamicRouteAppModel {
 
 				if (substr($param[0], -2) == "[]") {
 					$paramname = substr($param[0], 0, strlen($param[0]) - 2);
-					if (!array_key_exists($paramname, $params)) $params[$paramname] = array();
-					$params[$paramname] []= $param[1];
+					if (!array_key_exists($paramname, $params)) {
+						$params[$paramname] = array();
+					}
+					$params[$paramname][]= $param[1];
 				} else {
 					$params[$param[0]] = $param[1];
 				}

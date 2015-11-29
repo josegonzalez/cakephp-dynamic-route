@@ -19,8 +19,8 @@ class M4eca1305e1ec49fa9291be82cbdd56cb extends CakeMigration {
 		'up' => array(
 			'create_table' => array(
 				'dynamic_routes' => array(
-					'slug' => array('type' => 'string', 'null' => false, 'default' => NULL, 'key' => 'primary', 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
-					'spec' => array('type' => 'string', 'null' => false, 'default' => NULL, 'key' => 'index', 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+					'slug' => array('type' => 'string', 'null' => false, 'default' => null, 'key' => 'primary', 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+					'spec' => array('type' => 'string', 'null' => false, 'default' => null, 'key' => 'index', 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 					'active' => array('type' => 'boolean', 'null' => false, 'default' => '1'),
 					'indexes' => array(
 						'PRIMARY' => array('column' => 'slug', 'unique' => 1),
@@ -41,8 +41,7 @@ class M4eca1305e1ec49fa9291be82cbdd56cb extends CakeMigration {
  * Before migration callback
  *
  * @param string $direction, up or down direction of migration process
- * @return boolean Should process continue
- * @access public
+ * @return bool Should process continue
  */
 	public function before($direction) {
 		return true;
@@ -52,11 +51,9 @@ class M4eca1305e1ec49fa9291be82cbdd56cb extends CakeMigration {
  * After migration callback
  *
  * @param string $direction, up or down direction of migration process
- * @return boolean Should process continue
- * @access public
+ * @return bool Should process continue
  */
 	public function after($direction) {
 		return true;
 	}
 }
-?>
