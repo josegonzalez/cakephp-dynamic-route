@@ -40,7 +40,7 @@ class M4eca1305e1ec49fa9291be82cbdd56cb extends CakeMigration {
 /**
  * Before migration callback
  *
- * @param string $direction, up or down direction of migration process
+ * @param string $direction up or down direction of migration process
  * @return bool Should process continue
  */
 	public function before($direction) {
@@ -50,7 +50,7 @@ class M4eca1305e1ec49fa9291be82cbdd56cb extends CakeMigration {
 /**
  * After migration callback
  *
- * @param string $direction, up or down direction of migration process
+ * @param string $direction up or down direction of migration process
  * @return bool Should process continue
  */
 	public function after($direction) {
