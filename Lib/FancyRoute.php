@@ -36,18 +36,28 @@ class FancyRoute {
 		'cache' => true,
 	);
 
-	public static $_routes = array();
-
+/**
+ * Model instance
+ *
+ * @var mixed
+ */
 	public static $model = null;
+
+/**
+ * An array of loaded routes
+ *
+ * @var array
+ */
+	protected static $_routes = array();
 
 /**
  * Constructor for a Route
  *
- * @param string $poptions Array of parameters and additional options for the Route
+ * @param string $options Array of parameters and additional options for the Route
  * @return void
  */
 	public static function connectFancyRoutes($options = array()) {
-		static::$options = array_merge(static::$options, (array) $options);
+		static::$options = array_merge(static::$options, (array)$options);
 		Configure::write('DynamicRoute.cacheKey', static::$options['cacheKey']);
 
 		self::_loadDynamicRoutes();
@@ -89,7 +99,12 @@ class FancyRoute {
 		return false;
 	}
 
-	public static function _loadRoutes() {
+/**
+ * Loads routes into Router::connect
+ *
+ * @return bool
+ */
+	protected static function _loadRoutes() {
 		foreach (static::$_routes as $slug => $spec) {
 			Router::connect($slug, $spec);
 		}
