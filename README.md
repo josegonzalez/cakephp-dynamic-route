@@ -1,4 +1,9 @@
-[![Build Status](https://travis-ci.org/josegonzalez/cakephp-dynamic-route.png?branch=master)](https://travis-ci.org/josegonzalez/cakephp-dynamic-route) [![Coverage Status](https://coveralls.io/repos/josegonzalez/cakephp-dynamic-route/badge.png?branch=master)](https://coveralls.io/r/josegonzalez/cakephp-dynamic-route?branch=master) [![Total Downloads](https://poser.pugx.org/josegonzalez/cakephp-dynamic-route/d/total.png)](https://packagist.org/packages/josegonzalez/cakephp-dynamic-route) [![Latest Stable Version](https://poser.pugx.org/josegonzalez/cakephp-dynamic-route/v/stable.png)](https://packagist.org/packages/josegonzalez/cakephp-dynamic-route)
+[![Build Status](https://img.shields.io/travis/josegonzalez/cakephp-dynamic-route/master.svg?style=flat-square)](https://travis-ci.org/josegonzalez/cakephp-dynamic-route) 
+[![Coverage Status](https://img.shields.io/coveralls/josegonzalez/cakephp-dynamic-route.svg?style=flat-square)](https://coveralls.io/r/josegonzalez/cakephp-dynamic-route?branch=master) 
+[![Total Downloads](https://img.shields.io/packagist/dt/josegonzalez/cakephp-dynamic-route.svg?style=flat-square)](https://packagist.org/packages/josegonzalez/cakephp-dynamic-route) 
+[![Latest Stable Version](https://img.shields.io/packagist/v/josegonzalez/cakephp-dynamic-route.svg?style=flat-square)](https://packagist.org/packages/josegonzalez/cakephp-dynamic-route) 
+[![Documentation Status](https://readthedocs.org/projects/cakephp-dynamic-route/badge/?version=latest&style=flat-square)](https://readthedocs.org/projects/cakephp-dynamic-route/?badge=latest)
+[![Gratipay](https://img.shields.io/gratipay/josegonzalez.svg?style=flat-square)](https://gratipay.com/~josegonzalez/)
 
 # DynamicRoute Plugin (For CakePHP 2.0)
 
