@@ -230,7 +230,7 @@ class DynamicRoute extends DynamicRouteAppModel {
 					if (!array_key_exists($paramname, $params)) {
 						$params[$paramname] = array();
 					}
-					$params[$paramname][]= $param[1];
+					$params[$paramname][] = $param[1];
 				} else {
 					$params[$param[0]] = $param[1];
 				}

@@ -29,26 +29,22 @@ class FancyRoute {
  * An array of additional parameters for the Route.
  *
  * @var array
- * @access public
  */
-	static $options = array(
+	public static $options = array(
 		'model' => 'DynamicRoute.DynamicRoute',
 		'cacheKey' => 'dynamic_routes',
 		'cache' => true,
 	);
 
-	static $_routes = array();
+	public static $_routes = array();
 
-	static $model = null;
+	public static $model = null;
 
 /**
  * Constructor for a Route
  *
- * @param string $template Template string with parameter placeholders
- * @param array $defaults Array of defaults for the route.
- * @param string $params Array of parameters and additional options for the Route
+ * @param string $poptions Array of parameters and additional options for the Route
  * @return void
- * @access public
  */
 	public static function connectFancyRoutes($options = array()) {
 		static::$options = array_merge(static::$options, (array) $options);
@@ -60,7 +56,7 @@ class FancyRoute {
 /**
  * Loads routes in from the cache or database
  *
- * @return boolean
+ * @return bool
  */
 	public static function _loadDynamicRoutes() {
 		if (static::$options['cache']) {
