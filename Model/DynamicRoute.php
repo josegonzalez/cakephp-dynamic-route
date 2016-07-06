@@ -19,13 +19,13 @@ class DynamicRoute extends DynamicRouteAppModel {
 			),
 			'maxLength' => array(
 				'rule' => array('between', 255),
-				'message' => 'Slug must be at most 255 characters',
+				'message' => 'Specification must be at most 255 characters',
 			),
 		),
 		'slug' => array(
 			'minLength' => array(
 				'rule' => array('minLength', 2),
-				'message' => 'Specification must be at least 2 characters long',
+				'message' => 'Slug must be at least 2 characters long',
 			),
 			'maxLength' => array(
 				'rule' => array('maxLength', 255),
